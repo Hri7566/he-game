@@ -1,0 +1,13 @@
+# Build files
+/Makefile
+/*.make
+/bin
+/obj
+
+/.ninja_deps
+/.ninja_log
+/*.ninja
+
+# Logs
+*.log
+/logs

@@ -1,0 +1,6 @@
+[submodule "premake-ninja"]
+	path = premake-ninja
+	url = https://github.com/jimon/premake-ninja.git
+[submodule "hengine"]
+	path = hengine
+	url = https://github.com/Hri7566/hengine
