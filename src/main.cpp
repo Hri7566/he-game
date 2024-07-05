@@ -1,6 +1,7 @@
 #include "../hengine/src/hengine/Engine.hpp"
 #include <cstdio>
 #include <raylib.h>
+#include <iostream>
 
 Engine *e;
 
@@ -8,9 +9,15 @@ void load(void);
 void update(float delta);
 void draw(void);
 
-class Square : Actor {
+class Square : public Actor {
 public:
 	Rectangle rect;
+
+	void update(float delta);
+
+	void draw() {
+		DrawRectangleRec(rect, Color{ 1, 1, 1, 1 });
+	}
 };
 
 Square *square;
@@ -27,6 +34,7 @@ int main(void) {
 
 	square->rect = Rectangle{ 64, 64, 64, 64 };
 
+	std::cout << "here\n";
 	// Start engine loop
 	e->start();
 
@@ -38,7 +46,7 @@ int main(void) {
 void load(void) {
 	// When the engine is loaded...
 	printf("Engine loaded\n");
-	e->actor_list.add(&square);
+	e->actor_list.add(square);
 }
 
 void update(float delta) {
@@ -47,5 +55,5 @@ void update(float delta) {
 
 void draw(void) {
 	// Every render tick
-	DrawRectangleRec(*square, Color{ 1, 1, 1, 1 });
+	DrawRectangleRec(square->rect, Color{ 1, 1, 1, 1 });
 }
